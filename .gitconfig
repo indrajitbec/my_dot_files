@@ -1,0 +1,28 @@
+[alias]
+    d = difftool
+    s = "!f() { rev=${1-HEAD}; git difftool $rev^ $rev; }; f"
+    co = checkout
+    ls = log --decorate --oneline
+    ll = log --decorate --numstat
+    lg = git log --graph --oneline --decorate --pretty=format:'%h %ad | %s%d [%an]' --date=short
+    caa = commit --amend -C HEAD
+    st = status
+    pr = pull --rebase
+[user]
+    email = indrajit.mitra@keysight.com
+    name = Indrajit Mitra
+[merge]
+        tool = p4merge
+[mergetool "p4merge"]
+        cmd = p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+        trustExitCode = true
+[diff]
+        tool = p4merge
+[difftool "p4merge"]
+        cmd = p4merge "$LOCAL" "$REMOTE"
+[mergetool]
+        prompt = false
+        keepBackup = false
+        keepTemporaries = false
+[difftool]
+        prompt = false
